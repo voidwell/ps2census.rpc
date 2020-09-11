@@ -1,3 +1,36 @@
 syntax = "proto3";
 
 package com.ps2census;
+
+service PS2Census {
+    rpc GetCharacter(CharacterQuery) returns (CharacterResult) {}
+    rpc GetOutfit(OutfitQuery) returns (OutfitResult) {}
+}
+
+message CharacterQuery {
+    string characterID = 1;
+}
+
+message OutfitQuery {
+    string outfitID = 1;
+}
+
+message CharacterResult {
+    string characterID = 1;
+    string name = 2;
+    int32 factionID = 3;
+    int32 worldID = 4;
+    string outfitID = 5;
+    int32 battleRank = 6;
+    int32 prestigeLevel = 7;
+}
+
+message OutfitResult {
+    string outfitID = 1;
+    string name = 2;
+    string alias = 3;
+    int32 worldID = 4;
+    int32 factionID = 5;
+    string leaderCharacterID = 6;
+    int32 memberCount = 7;
+}
