@@ -10,5 +10,5 @@ go get -u google.golang.org/grpc
 go get -u github.com/golang/protobuf/protoc-gen-go
 
 find . -name '*.proto' -type f | while read line; do
-    protoc -I $(dirname "$line") $line --go_out=plugins=grpc:$(basename "${line%.*}")
+    protoc -I $(dirname "$line") $line --go_out=plugins=grpc:.
 done
